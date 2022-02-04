@@ -1,0 +1,37 @@
+version: '3'
+services:
+ apache:
+  image: httpd:2.4.52
+  volumes:
+   - './src:/usr/local/apache2/htdocs'
+  labels:
+   - "traefik.enable=true"
+   - "traefik.http.routers.html.rule=Host(`${PROJECT_BASE_URL}`)"
+   - "traefik.http.services.html.loadbalancer.server.port=80"
+ database:
+    image: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=admin
+      - MARIADB_DATABASE=test
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=pass
+
+ phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    environment:
+      - PMA_ARBITRARY=1
+    labels:
+      # - "traefik.enable=true"
+      # - "traefik.http.routers.myadmin.rule=Host(`web.localhost`)"
+      # - "traefik.http.routers.myadmin.entrypoints=web"
+      - "traefik.http.routers.phpmyadmin.rule=HOST(`phpmyadmin.${PROJECT_BASE_URL}`)"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+ traefik:
+    image: "traefik:v2.6"
+    command: --api.insecure=true --providers.docker
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
