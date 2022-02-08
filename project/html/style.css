@@ -1,4 +1,287 @@
-h1{
-	color: red;
-	font-size: 35px;
+body{
+	margin: 0;
+}
+.form-parent{
+	width: 553px;;
+	margin-left: auto;
+    margin-right: auto;
+}
+.form-bg{
+	min-height: 583px;
+	background: #020312;
+	padding: 20px 41px;
+}
+.head-h{
+	color: white;
+	font-size: 30px;
+}
+.contact-information h2{
+	color: white;
+	font-size: 14px;
+	padding-bottom: 4px;
+  margin-top: 12px;
+	font-weight: 600;
+}
+.delivery-information h2{
+	color: white;
+	font-size: 14px;
+	font-weight: 600!important;
+	margin-top: 13px;
+  margin-bottom: 6px;
+}
+.preference-convirmation h2{
+	color: white;
+	font-size: 14px;
+	padding-bottom: 4px;
+	margin-top: 8px;
+	font-weight: 600!important;
+	margin: 0!important;
+}
+.information-groups{
+	display: flex;
+	padding-bottom: 10px;
+}
+.group-username input{
+	padding-left: 7px;
+}
+.group-mail input{
+	padding-left: 7px;
+}
+.group-number input{
+	padding-left: 7px;
+}
+
+.group-zip-code input{
+	padding: 6px;
+	padding-top: 0;
+	width: 38%;
+}
+.control-label{
+	color: white;
+	padding-bottom: 6px;
+	font-size: 13px;
+	font-weight: 500!important;
+	padding-left: 9px;
+}
+label.required:after
+{
+	color: #bf462f;
+	content: " *";
+}
+.group-username{
+	display: flex;
+	flex-direction: column;
+	margin-right: 30px;
+}
+.group-mail{
+	display: flex;
+	flex-direction: column;
+}
+.group-number{
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+}
+.group-country{
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	padding-bottom: 15px;
+}
+.group-city{
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	margin-right: 97px;
+}
+.group-zip-code{
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+    margin-left: 34px;
+}
+input::placeholder{
+	font-weight: 600!important;
+	color:#282d38!important;
+}
+input {
+	outline:none;
+	color: white!important;
+}
+input+div.error{
+	display: none;
+}
+ input:invalid:focus{
+ 	display: block;
+	border-color: red!important; 
+}
+input:invalid:focus + div.error {
+	display: block;
+	color: red!important;
+	font-size: 11px;
+}
+   input:valid{
+	border-color: white; 
+}
+select{
+	outline: none;
+	appearance: none;
+	height: 38px;
+	padding-left: 7px;
+	border:1px solid white!important;
+	font-size: 16px;
+	font-weight: 500!important;
+	width: 187%;
+	background: #020312!important;
+	color: white;
+	cursor: pointer;
+}
+select:invalid:focus + div.error{ 
+	display: block;
+	color: red!important;
+	font-size: 11px;
+}
+select:invalid:focus{
+	border-color: red!important;
+}
+select+div.error{
+	display: none;
+}
+select:valid{
+	border-color: white!important;
+}
+
+
+.choose_elements{
+  color: #282d38;
+	font-weight: 600!important;
+}
+.element.active{
+	color: black;
+	background: #ff5c39;
+	font-size: 15px;
+	font-weight: 500;
+}
+.element{
+	color: white!important;
+	font-weight: 500;
+}
+.create-button{
+	margin-top: 15px;
+}
+.create-button button{
+	border:none;
+	background: #f26c4f;	
+  color: white;
+	font-size: 17px;
+	font-weight: 600!important;
+	height: 40px;
+	width: 37%;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.create-button button:hover{
+	width: 50%;
+	height: 50px;
+	transition: 0.3s;
+}
+.form-control{
+	background: #020312;
+	border:none;
+	height: 38px;
+	transition: 0.3s;
+	border: 1px solid white!important;
+}
+.form-control:focus{
+	border:1px solid #009ddb!important;
+	transition: 0.3s;
+}
+.form-control:hover{
+	border:1px solid #df5134!important;
+	transition: 0.3s;
+}
+#tutorial_choice:focus{
+	border:1px solid #009ddb!important;
+	transition: 0.3s;
+}
+#tutorial_choice:hover{
+	border:1px solid #df5134!important;
+	transition: 0.3s;
+}
+.active-label{
+	color: white;
+}
+/*checkbox*/
+.field:last-child {
+  margin: 0;
+margin-bottom:0;
+}
+.field label{
+	color: white;
+	font-size: 12px;
+}
+[dir] .field:not(:last-child) {
+    margin-bottom: 5px!important;
+}
+/**
+ * Removing the checkbox and radio appearance
+ */
+
+[type=radio],
+[type=checkbox] {
+   -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
+}
+
+/**
+ * Giving Checkbox & Radio not checked a new appearance
+ */
+
+.field>[type=radio],
+[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #f26c4f!important;
+  margin-right: 8px;
+  top: 5px;
+  position: relative;
+}
+
+/**
+ * Giving Checkbox & Radio checked state a new appearance
+ */
+
+ [type=radio]:checked::before,
+ [type=checkbox]:checked::before {
+ 	content: "✔";
+ 	width: 20px;
+ 	height: 20px;
+ 	background-color: #f26c4f!important;
+ 	position: absolute;
+ 	text-align: center;
+ 	top: -1px;
+ 	left: -1px;
+ }
+
+/**
+ * Rounding Radio inputs new appearance
+ */
+
+[type=radio],
+[type=radio]:checked::before{
+  border-radius: 100%;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+-webkit-text-fill-color: #FFFFFF;
+-webkit-box-shadow: 0 0 0px 1000px #020312 inset;
+transition: background-color 5000s ease-in-out 0s;
 }
