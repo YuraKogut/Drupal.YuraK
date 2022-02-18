@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
+    container_name: server
+    volumes:
+      - './src:/var/www/html'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.server.rule=Host(`${PROJECT_BASE_URL}`)"
+      - "traefik.http.services.server.loadbalancer.server.port=80"
+
+  db:
+    image: mysql
+    container_name: db
+    volumes:
+      - "./.mysql-data/db:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD_ROOT}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+
+    labels:
+      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+
+  traefik:
+    image: "traefik:v2.6"
+    container_name: "traefik"
+    command: --api.insecure=true --providers.docker
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"

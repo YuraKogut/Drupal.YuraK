@@ -1,0 +1,4 @@
+make.exe: ����� � ������� "c:/Users/PK/Downloads/backend-course-main"
+docker-compose -f docker-compose.yml up -d 
+make.exe: ������� ������� "c:/Users/PK/Downloads/backend-course-main"
+ 
