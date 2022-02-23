@@ -7,7 +7,7 @@ services:
       dockerfile: ./docker/server/Dockerfile
     container_name: server
     volumes:
-      - './src:/var/www/html'
+      - '.:/var/www'
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.server.rule=Host(`${PROJECT_BASE_URL}`)"

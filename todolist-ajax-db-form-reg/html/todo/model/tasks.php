@@ -9,6 +9,5 @@ function getAllTasks($id_user)
   $query = $db->prepare($sql);
   $query->bindParam(':id_user', $id_user);
   $query->execute();
-
   return $query->fetchAll();
 }

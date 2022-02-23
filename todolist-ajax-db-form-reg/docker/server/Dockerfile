@@ -12,4 +12,4 @@ RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-WORKDIR /var/www/html
+WORKDIR /var/www

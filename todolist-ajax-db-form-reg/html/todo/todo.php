@@ -41,7 +41,7 @@ $tasks = getAllTasks($_SESSION['id']);
 </head>
 <body>
 <div class="container">
-    <h1>Drupal BE Beetroot Academy!</h1>
+    <h1>Hello, <?php echo $_SESSION["login"] ?></h1>
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -58,56 +58,23 @@ $tasks = getAllTasks($_SESSION['id']);
 
     <div class="row">
         <div class="col-6">
-            <form name="todoform" class="todoForm">
+            <form name="todoform"   class="todoForm">
                 <div class="input-group mb-3 mt-3">
                     <input type="text" class="form-control text" id="text" name="text">
-                    <button class="btn btn-outline-secondary add" id="add" name="add">Add Task</button>
+                    <button class="btn btn-outline-secondary add" type="submit" id="add" name="add">Add Task</button>
                 </div>
             </form>
-
-          <?php if (!empty($tasks)): ?>
-              <table class="table caption-top">
-                  <caption>List of tasks - <span style="color: black"><b><?=$_SESSION['login']?></b></span></caption>
-                  <thead>
-                  <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">Task</th>
-                      <th scope="col">Date</th>
-                      <th scope="col">Action</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <?php foreach ($tasks as $task): ?>
-                      <tr>
-                          <th scope="row"><?= $task['id'] ?></th>
-                          <td><?= $task['text'] ?></td>
-                          <td><?= $task['dt_create'] ?></td>
-                          <td><a class="deltask" href="model/deleteTask.php?id=<?= $task['id'] ?>">Delete</a></td>
-                      </tr>
-                  <?php endforeach; ?>
-                  </tbody>
-              </table>
-              <button type="button" class="btn btn-danger deltasks"><a href="model/deleteAllTasks.php">Delete all
-                      tasks</a></button>
-          <?php endif; ?>
+            
+        <div id="table">
+          
+              
+            </div>
+           
         </div>
     </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $('.todoForm').on("submit", function (e) {
-        e.preventDefault();
-        let text = document.querySelector('#text').value;
-        $.ajax({
-            url: 'model/addTask.php',
-            type: 'POST',
-            data: {
-                text: text
-            },
-            dataType: "text"
-        });
-    });
-</script>
+<script src="/script.js"></script>
 </body>
 </html>
