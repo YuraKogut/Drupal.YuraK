@@ -6,5 +6,7 @@
             "Root\\Www\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "psr/log": "^1.1"
+    }
 }

@@ -22,22 +22,7 @@ $tasks = getAllTasks($_SESSION['id']);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DrupalToDoList</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        input[type="text"]:focus,
-        button:focus {
-            box-shadow: none !important;
-            outline: none !important;
-        }
-
-        .deltasks a {
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .deltasks a:hover {
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="../main-style.css">
 </head>
 <body>
 <div class="container">

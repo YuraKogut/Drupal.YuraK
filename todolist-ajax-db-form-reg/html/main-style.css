@@ -189,3 +189,18 @@ a.nav-link:hover {
 .row {
   justify-content: center;
 }
+
+input[type="text"]:focus,
+button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.deltasks a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.deltasks a:hover {
+    color: #fff;
+}
