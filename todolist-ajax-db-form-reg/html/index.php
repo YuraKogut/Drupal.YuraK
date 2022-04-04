@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="main-h">Welcome to my ToDoList with registration form</h1>
+    <h1 class="main-h">Welcomeее rrto my ToDoList with registration form</h1>
     <div class="row">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">

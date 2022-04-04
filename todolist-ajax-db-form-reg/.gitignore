@@ -1,5 +1,4 @@
 .mysql-data/
 .env
-.idea/
 .vscode
 /vendor/
